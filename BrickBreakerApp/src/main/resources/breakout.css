@@ -1,0 +1,87 @@
+@font-face {
+    src: url("misterpixel.ttf");
+}
+
+.canvas {
+    -fx-background-color: #20b2aa;
+}
+
+.text {
+    -fx-font-family: "VTF MisterPixel";
+    -fx-text-fill: #fff;
+}
+
+#pressStart {
+    -fx-text-fill: #93F772;
+}
+
+#paddle {
+    -fx-fill: #800000;
+}
+
+#ball {
+    -fx-fill: #fff;
+}
+
+#scorePane {
+    -fx-background-color: #20b2aa;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: #555;
+    -fx-border-style: solid;
+}
+
+#lives, #level {
+    -fx-font-size: 26px;
+}
+
+.interstitial {
+    -fx-font-size: 42px;
+}
+
+.row-0 {
+    -fx-opacity: 0.55;
+}
+
+.row-1 {
+    -fx-opacity: 0.75;
+}
+
+.row-2 {
+    -fx-opacity: 0.9;
+}
+
+.col-0 {
+    -fx-background-color: #d29fe5;
+}
+
+.col-1 {
+    -fx-background-color: #9edbf8;
+}
+
+.col-2 {
+    -fx-background-color: #fdf6ae;
+}
+
+.col-3 {
+    -fx-background-color: #f8b9cf;
+}
+
+.col-4 {
+    -fx-background-color: #edf1f3;
+}
+
+.col-5 {
+    -fx-background-color: #f6b962;
+}
+
+.damage-1, .damage-2 {
+    -fx-background-image: url("damage-sprite.png");
+}
+
+.damage-1 {
+    -fx-background-position: 0 0;
+}
+
+.damage-2 {
+    -fx-background-position: 0 53;
+} 

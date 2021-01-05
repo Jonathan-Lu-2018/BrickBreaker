@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="640.0" stylesheets="breakout.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Group id="titleGroup" fx:id="titleGroup">
+         <children>
+            <Pane id="titleCanvas" prefHeight="600.0" prefWidth="640.0" styleClass="canvas">
+               <children>
+                   
+                  <Label id="title" alignment="CENTER" layoutX="140.0" layoutY="110.0" styleClass="text" text="BREAKOUT" textAlignment="CENTER">
+                     <font>
+                        <Font size="80.0" />
+                     </font>
+                  </Label>
+               
+               	  <Label id="pressStart" layoutX="185.0" layoutY="330.0" styleClass="text" text="Press SPACE to start">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               
+                  <Label layoutX="250.0" layoutY="400.0" styleClass="text" text="Close Game: ESC">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                 
+                  
+               
+               </children>
+            </Pane>
+         </children>
+      </Group>
+      <Group id="gameGroup" fx:id="gameGroup" visible="false">
+         <children>
+            <Pane id="scorePane" prefHeight="40.0" prefWidth="640.0">
+               <children>
+                  <SVGPath content="M 297.29747,550.86823 C 283.52243,535.43191 249.1268,505.33855 220.86277,483.99412 C 137.11867,420.75228 125.72108,411.5999 91.719238,380.29088 C 29.03471,322.57071 2.413622,264.58086 2.5048478,185.95124 C 2.5493594,147.56739 5.1656152,132.77929 15.914734,110.15398 C 34.151433,71.768267 61.014996,43.244667 95.360052,25.799457 C 119.68545,13.443675 131.6827,7.9542046 172.30448,7.7296236 C 214.79777,7.4947896 223.74311,12.449347 248.73919,26.181459 C 279.1637,42.895777 310.47909,78.617167 316.95242,103.99205 L 320.95052,119.66445 L 330.81015,98.079942 C 386.52632,-23.892986 564.40851,-22.06811 626.31244,101.11153 C 645.95011,140.18758 648.10608,223.6247 630.69256,270.6244 C 607.97729,331.93377 565.31255,378.67493 466.68622,450.30098 C 402.0054,497.27462 328.80148,568.34684 323.70555,578.32901 C 317.79007,589.91654 323.42339,580.14491 297.29747,550.86823 z" fill="RED" layoutX="10.0" layoutY="-275.0" scaleX="0.04" scaleY="0.04" />
+                  <Label id="lives" layoutX="354.0" layoutY="5.0" styleClass="text" text="x 5" />
+                  <Label id="level" layoutX="14.0" layoutY="6.0" styleClass="text" text="Level 1" />
+               </children>
+            </Pane>
+            <Pane id="gameCanvas" layoutY="40.0" prefHeight="560.0" prefWidth="640.0" styleClass="canvas">
+               <children>
+                  <GridPane id="bricks" layoutY="50.0" prefHeight="225.0" prefWidth="640.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="105.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="105.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="105.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="105.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="105.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="105.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Region prefHeight="52.0" prefWidth="103.0" GridPane.halignment="RIGHT">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-0" />
+                              <String fx:value="col-0" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-0" />
+                              <String fx:value="col-1" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-0" />
+                              <String fx:value="col-2" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-0" />
+                              <String fx:value="col-3" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="4">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-0" />
+                              <String fx:value="col-4" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="5" GridPane.halignment="LEFT">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-0" />
+                              <String fx:value="col-5" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-1" />
+                              <String fx:value="col-0" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-1" />
+                              <String fx:value="col-1" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-1" />
+                              <String fx:value="col-2" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-1" />
+                              <String fx:value="col-3" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-1" />
+                              <String fx:value="col-4" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-1" />
+                              <String fx:value="col-5" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-2" />
+                              <String fx:value="col-0" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-2" />
+                              <String fx:value="col-1" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-2" />
+                              <String fx:value="col-2" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-2" />
+                              <String fx:value="col-3" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-2" />
+                              <String fx:value="col-4" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-2" />
+                              <String fx:value="col-5" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-3" />
+                              <String fx:value="col-0" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-3" />
+                              <String fx:value="col-1" />
+                           </styleClass>
+                        </Region>
+                        <Region prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-3" />
+                              <String fx:value="col-2" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-3" />
+                              <String fx:value="col-3" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-3" />
+                              <String fx:value="col-4" />
+                           </styleClass>
+                        </Region>
+                        <Region layoutX="10.0" layoutY="10.0" prefHeight="52.0" prefWidth="103.0" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets bottom="2.0" left="2.0" top="2.0" />
+                           </GridPane.margin>
+                           <styleClass>
+                              <String fx:value="row-3" />
+                              <String fx:value="col-5" />
+                           </styleClass>
+                        </Region>
+                     </children>
+                  </GridPane>
+                  <Rectangle id="paddle" arcHeight="10.0" arcWidth="10.0" height="15.0" layoutX="260.0" layoutY="530.0" width="120.0" />
+                  <Circle id="ball" layoutX="319.0" layoutY="522.0" radius="8.0" />
+               </children>
+            </Pane>
+         </children>
+      </Group>
+      <Group id="levelInterstitial" visible="false">
+         <children>
+            <Pane prefHeight="600.0" prefWidth="640.0" styleClass="canvas">
+               <children>
+                  <Label id="levelIn" layoutX="272.0" layoutY="217.0" text="Level 1">
+                     <styleClass>
+                        <String fx:value="text" />
+                        <String fx:value="interstitial" />
+                     </styleClass>
+                  </Label>
+                  <SVGPath content="M 297.29747,550.86823 C 283.52243,535.43191 249.1268,505.33855 220.86277,483.99412 C 137.11867,420.75228 125.72108,411.5999 91.719238,380.29088 C 29.03471,322.57071 2.413622,264.58086 2.5048478,185.95124 C 2.5493594,147.56739 5.1656152,132.77929 15.914734,110.15398 C 34.151433,71.768267 61.014996,43.244667 95.360052,25.799457 C 119.68545,13.443675 131.6827,7.9542046 172.30448,7.7296236 C 214.79777,7.4947896 223.74311,12.449347 248.73919,26.181459 C 279.1637,42.895777 310.47909,78.617167 316.95242,103.99205 L 320.95052,119.66445 L 330.81015,98.079942 C 386.52632,-23.892986 564.40851,-22.06811 626.31244,101.11153 C 645.95011,140.18758 648.10608,223.6247 630.69256,270.6244 C 607.97729,331.93377 565.31255,378.67493 466.68622,450.30098 C 402.0054,497.27462 328.80148,568.34684 323.70555,578.32901 C 317.79007,589.91654 323.42339,580.14491 297.29747,550.86823 z" fill="RED" layoutX="-16.0" layoutY="22.0" scaleX="0.05" scaleY="0.05" />
+                  <Label id="livesIn" layoutX="349.0" layoutY="292.0" text="x 5">
+                     <styleClass>
+                        <String fx:value="text" />
+                        <String fx:value="interstitial" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Group>
+      <Group id="winInterstitial" visible="false">
+         <children>
+            <Pane prefHeight="600.0" prefWidth="640.0" styleClass="canvas">
+               <children>
+                  <Label layoutX="238.0" layoutY="224.0" text="You won!">
+                     <styleClass>
+                        <String fx:value="text" />
+                        <String fx:value="interstitial" />
+                     </styleClass>
+                  </Label>
+                  <Label layoutX="168.0" layoutY="285.0" text="Congratulations!">
+                     <styleClass>
+                        <String fx:value="text" />
+                        <String fx:value="interstitial" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Group>
+      <Group id="lostInterstitial" visible="false">
+         <children>
+            <Pane prefHeight="600.0" prefWidth="640.0" styleClass="canvas">
+               <children>
+                  <Label layoutX="238.0" layoutY="254.0" text="Game over.">
+                     <styleClass>
+                        <String fx:value="text" />
+                        <String fx:value="interstitial" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </Pane>
+         </children>
+      </Group>
+   </children>
+</Pane>
